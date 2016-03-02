@@ -1,1 +1,11 @@
 <h1>Welcome to Kenny's School</h1>
+<% @teachers.each do |teacher| %>
+  <div id="teacher-<%= teacher.id %>">
+    <%= teacher.first_name %>
+    <%teacher.students.each do |student| %>
+      <%= student.first_name %>
+    <% end %>
+    Oldest Student<%=oldest_and_youngest(teacher.students).first  %>
+    YOungest Student<%=oldest_and_youngest(teacher.students).last  %>
+  </div>
+<% end %>
